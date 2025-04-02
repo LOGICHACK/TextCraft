@@ -1,0 +1,37 @@
+// IMPORTANT: Comments make this file INVALID JSON. Remove all '//' lines before use!
+{
+  // Key: Result item name (string, lowercase recommended). Used with '!craft <result_name>'. MUST match an item defined in items/*.json.
+  "example_crafted_tool": {
+    // (List of Strings, Required) Items consumed from player inventory. Counts matter (list items multiple times if needed). Must match item names defined in items/*.json.
+    "ingredients": [
+      "example_material",
+      "example_material",
+      "another_material"
+    ],
+    // (String, Optional) Item name produced. Defaults to the key if omitted. Must match an item name in items/*.json. Usually the same as the key.
+    "result": "example_crafted_tool",
+    // (Number, Optional, defaults to 1) Durability given to the crafted item if its type is 'tool' or 'weapon'. Ignored otherwise.
+    "durability": 15,
+    // (String, Optional, defaults to 'material') Type assigned to the crafted item. Determines if it goes to inventory ('material', 'food', 'loot', 'gem', etc.) or toolbelt ('tool', 'weapon'). Should match the type defined in items/*.json for the result item.
+    "type": "tool",
+    // (String, Optional) Description for reference (not shown in-game currently, but good practice).
+    "description": "A description of the crafting process or the resulting item."
+  },
+  "example_crafted_material": {
+    "ingredients": [
+      "MOB_1_LOOT_ITEM",
+      "COMMON_MATERIAL"
+    ],
+    "result": "example_crafted_material",
+    // No durability needed if it's not a tool/weapon
+    "type": "material", // Goes to inventory
+    "description": "Combining loot drops into something useful."
+  },
+  "recipe_with_no_ingredients": {
+    "ingredients": [], // An empty list means no items are consumed.
+    "result": "item_from_nothing", // Must be defined in items/*.json
+    "type": "material",
+    "description": "A recipe that requires no ingredients (maybe unlocked via command/event?)"
+  }
+}
+
