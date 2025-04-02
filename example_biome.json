@@ -1,0 +1,89 @@
+// IMPORTANT: Comments (like this line) make this file INVALID JSON.
+// Remove all lines starting with '//' before saving as a .json file for the bot!
+{
+  // (String, Optional) Display name for the biome. Used in !look.
+  "name": "Example Biome Name",
+
+  // (String, Required) Main description shown on !walk and !look.
+  "description": "A detailed description of the biome environment, setting the mood and mentioning key features.",
+
+  // (String or null, Optional) URL to an image displayed with !look. Use null or omit if no image.
+  "image_url": "https://example.com/image.png",
+
+  // (List of Strings, Optional) Items found using general '!mine' command. Must match items defined in items/*.json.
+  "items_mineable": [
+    "GENERAL_RESOURCE_1",
+    "GENERAL_RESOURCE_2"
+  ],
+
+  // (String or null, Optional) Tool *tag* required for general '!mine'. Must match a tag in items/*.json. Use null if no tool needed.
+  "required_tool_tag": "TOOL_TAG_FOR_GENERAL_ITEMS_OR_NULL",
+
+  // (Object, Required) Holds specific points of interest within the biome.
+  "locations": {
+    // Key: (String) Unique name used with '!look <location_name>'.
+    "example_location_1": {
+      // (String, Required) Description shown with '!look location_name'.
+      "description": "Description of this specific point of interest within the biome.",
+      // (List of Strings, Optional) Items mineable specifically from here using '!mine <item_name>'.
+      "items": [
+        "LOCATION_RESOURCE_1",
+        "LOCATION_RESOURCE_2"
+      ],
+      // (String or null, Optional) Tool tag required to mine items from this location. Overrides biome-level tag.
+      "required_tool_tag": "TOOL_TAG_FOR_LOCATION_OR_NULL"
+    },
+    "example_location_2": {
+      "description": "Description of another distinct spot in the biome.",
+      "items": [
+        "OTHER_LOCATION_RESOURCE"
+      ],
+      "required_tool_tag": "pickaxe" // Example: Requires a tool with the 'pickaxe' tag.
+    }
+  },
+
+  // (List of Objects, Required) Mobs encountered here. Can be empty [].
+  "mobs": [
+    {
+      // (String, Required) Mob's display name.
+      "name": "Example Mob 1 (Easy)",
+      // (String, Required) Description shown on encounter.
+      "description": "Description of this creature, maybe its appearance or behavior.",
+      // (Number, Required) Base damage dealt per attack.
+      "damage": 2,
+      // (Number, Optional, defaults to 1.0) Base damage multiplier for weapons NOT listed below. <1 = resistant, >1 = vulnerable.
+      "default_effectiveness": 1.0,
+      // (Object, Optional, defaults to {}) Maps weapon names (from items/*.json) to damage multipliers against this mob.
+      "weapon_effectiveness": {
+        "sword": 1.2,
+        "basic_axe": 0.9
+      },
+      // (Number, Optional, defaults to 0.1) Base chance (0.0-1.0) to escape after being hit. Modified by weapon effectiveness.
+      "escape_threshold": 0.4,
+      // (Number, Optional, defaults to 0.1) Base chance (0.0-1.0) to kill mob after being hit. Modified by weapon effectiveness.
+      "kill_threshold": 0.2,
+      // (List of Strings, Optional, defaults to []) Items dropped if mob is defeated by kill_threshold check.
+      "loot": [
+        "MOB_1_LOOT_ITEM",
+        "COMMON_MATERIAL"
+      ]
+    },
+    {
+      "name": "Example Mob 2 (Harder)",
+      "description": "Description of a tougher creature found here.",
+      "damage": 5,
+      "default_effectiveness": 0.9,
+      "weapon_effectiveness": {
+        "sword": 0.8,
+        "axe": 1.1
+      },
+      "escape_threshold": 0.15,
+      "kill_threshold": 0.05,
+      "loot": [
+        "MOB_2_LOOT_ITEM_A",
+        "MOB_2_LOOT_ITEM_B",
+        "RARE_MATERIAL"
+      ]
+    }
+  ]
+}
