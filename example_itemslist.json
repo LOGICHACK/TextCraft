@@ -1,0 +1,49 @@
+// IMPORTANT: Comments make this file INVALID JSON. Remove all '//' lines before use!
+{
+  // Key: Item name (string, lowercase recommended). This is the ID used everywhere else (inventory, recipes, loot etc.)
+  "example_material": {
+    // (String, Optional) Description for reference (not shown in-game currently, but good practice).
+    "description": "A basic crafting material obtained from [Source].",
+    // (String, Required for some logic) Helps categorize. Common examples:
+    // "material", "tool", "weapon", "food", "loot", "gem", "recipe_scroll", "quest"
+    "type": "material"
+  },
+  "example_food": {
+    "description": "Something edible found in [Biome/Location] or dropped by [Mob].",
+    "type": "food",
+    // (Number, Optional) Amount of health restored by !eat command. Only useful for 'food' type. Omit or 0 if it doesn't heal.
+    "heal": 5
+  },
+  "example_tool": {
+    "description": "A standard tool used for [Action].",
+    "type": "tool",
+    // (List of Strings, Optional but Recommended for Tools) Tags define capabilities (e.g., for mining).
+    // The !mine command checks for the *tag* specified in the biome/location data.
+    // Examples: ["pickaxe", "standard_tool"], ["axe", "standard_tool"], ["shovel"]
+    "tags": ["TOOL_TAG_1", "standard_tool"]
+  },
+  "example_basic_tool": {
+    "description": "A basic version of a tool, likely fragile.",
+    "type": "tool",
+    // Include the base tag (e.g., "pickaxe") AND the "basic_tool" tag for priority logic in !mine.
+    "tags": ["TOOL_TAG_1", "basic_tool"]
+  },
+  "example_weapon": {
+    "description": "A simple weapon.",
+    "type": "weapon",
+    // (List of Strings, Optional) Tags can also categorize weapons for mob effectiveness or other mechanics.
+    "tags": ["sword", "standard_weapon", "slashing"]
+  },
+  "example_loot": {
+    "description": "Something dropped by [Mob Name].",
+    // Can be 'loot' if it has no other purpose, or 'material' if used in crafting.
+    "type": "loot"
+  },
+  "example_recipe_item": {
+      "description": "Faded instructions detailing how to craft [Result Item Name]. Found [Where?].",
+      // (String, Required for learnable recipes) Must be "recipe_scroll" for the !learn command (if implemented).
+      "type": "recipe_scroll",
+      // (String, Required for recipe_scroll) The exact name (key) of the recipe in recipes/*.json that this scroll teaches.
+      "teaches": "item_name_to_learn"
+  }
+}
