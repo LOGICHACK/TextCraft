@@ -4,7 +4,7 @@
   // (String, Optional) Display name for the biome. Used in !look.
   "name": "Example Biome Name",
 
-  // (String, Required) Main description shown on !walk and !look.
+  // (String, Required) Main description shown on !look.
   "description": "A detailed description of the biome environment, setting the mood and mentioning key features.",
 
   // (String or null, Optional) URL to an image displayed with !look. Use null or omit if no image.
