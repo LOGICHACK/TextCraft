@@ -51,7 +51,7 @@ Place your mod's files in subdirectories named after your mod within the base da
 ### **Creating Files**
 
 * **Use JSON format.** Ensure files are valid JSON (no comments inside, correct brackets/commas/quotes).  
-* Use the provided template files (mod\_example\_biome, mod\_example\_items, mod\_example\_recipes) as a starting point. **Remember to remove the // comments from the templates before saving your .json files\!** Refer to the separate files for detailed field explanations without invalidating comments.
+* Use the provided template files (mod\_example\_biome, mod\_example\_items, mod\_example\_recipes) as a starting point. **Remember to remove the // comments from the templates before saving your .json files\!** 
 
 ### **Key Concepts**
 
